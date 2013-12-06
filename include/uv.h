@@ -39,7 +39,7 @@ extern "C" {
     /* Building static library. */
 #   define UV_EXTERN /* nothing */
 # endif
-#elif __GNUC__ >= 4
+#elif __GNUC__ >= 4 && defined(UV_EXTERN_VISIBILITY_DEFAULT)
 # define UV_EXTERN __attribute__((visibility("default")))
 #else
 # define UV_EXTERN /* nothing */

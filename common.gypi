@@ -154,7 +154,7 @@
             'cflags': [ '-pthread' ],
             'ldflags': [ '-pthread' ],
           }],
-          [ 'visibility=="hidden" and (clang==1 or gcc_version >= 40)', {
+          [ '(clang==1 or gcc_version >= 40)', {
             'cflags': [ '-fvisibility=hidden' ],
           }],
         ],
@@ -202,6 +202,11 @@
        'cflags': [ '-fno-omit-frame-pointer' ],
        # pull in V8's postmortem metadata
        'ldflags': [ '-Wl,-z,allextract' ]
+     }],
+     ['visibility=="default"', {
+       'defines': [
+         'UV_EXTERN_VISIBILITY_DEFAULT',
+       ]
      }],
     ],
   },
